@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->foreignId('group_id')
+                  ->nullable()
+                  ->after('role')
+                  ->constrained('groups');
         });
     }
 

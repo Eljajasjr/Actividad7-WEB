@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id(); // Clave primaria automática
             $table->string('course_key')->unique();
             $table->string('course_name');
+            $table->foreignId('robotics_kit_id')->constrained('robotics_kits');
             $table->foreignId('parent_course_id') // ⬅ Nombre correcto para autorreferencia
                   ->nullable()
                   ->constrained('courses'); // Referencia a la misma tabla
